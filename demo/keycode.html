@@ -11,11 +11,9 @@
 
 <body class="bg-dark text-light text-center d-flex flex-column justify-content-center" style="height: 100vh;">
     <div class="container">
-        <h2 class="mb-4">Enter Car's License Number</h2>
+        <h2 class="mb-4">Enter Car's key code</h2>
         <div class="license-display mb-4 font-weight-bold">
-            <span id="firstTwo" class="border p-2 mr-2 rounded bg-light text-dark">--</span>
             <span id="middleFour" class="border p-2 mr-2 rounded bg-light text-dark">----</span>
-            <span id="lastTwo" class="border p-2 rounded bg-light text-dark">--</span>
         </div>
         <div class="keypad mb-4">
             <button onclick="addDigit('1')" class="btn font-weight-bold btn-primary">1</button>
@@ -28,15 +26,15 @@
             <button onclick="addDigit('8')" class="btn font-weight-bold btn-primary mt-2">8</button>
             <button onclick="addDigit('9')" class="btn font-weight-bold btn-primary mt-2">9</button><br>
             <button onclick="addDigit('0')" class="btn font-weight-bold btn-primary ml-xl-5 mt-2">0</button>
-            <button onclick="backspace()" class="btn btn-danger font-weight-bold mt-2">←</button>
+            <button onclick="backspace()" class="btn font-weight-bold btn-danger  mt-2">←</button>
         </div>
-        <a href="keycode.html"><button class="btn btn-success font-weight-bold" onclick="/*confirmLicense()*/">Confirm</button></a>
-        <button class="btn btn-danger font-weight-bold" onclick="cancelEntry()">Cancel</button>
+        <a href="phone.html"><button class="btn font-weight-bold btn-success" onclick="/*confirmLicense()*/">Confirm</button></a>
+        <button class="btn font-weight-bold btn-danger" onclick="cancelEntry()">Cancel</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>let licenseNumber = ''; function addDigit(digit) { if (licenseNumber.length < 8) { licenseNumber += digit; displayLicense(); } } function backspace() { licenseNumber = licenseNumber.slice(0, -1); displayLicense(); } function displayLicense() { document.getElementById('firstTwo').textContent = licenseNumber.substr(0, 2).padEnd(2, '-'); document.getElementById('middleFour').textContent = licenseNumber.substr(2, 4).padEnd(4, '-'); document.getElementById('lastTwo').textContent = licenseNumber.substr(6, 2).padEnd(2, '-'); } function confirmLicense() { if (licenseNumber.length === 8) { alert('License number confirmed: ' + licenseNumber); } else { alert('Please enter a valid 8-digit license number.'); } } function cancelEntry() { licenseNumber = ''; displayLicense(); }</script>
+    <script>let licenseNumber = ''; function addDigit(digit) { if (licenseNumber.length < 8) { licenseNumber += digit; displayLicense(); } } function backspace() { licenseNumber = licenseNumber.slice(0, -1); displayLicense(); } function displayLicense() { document.getElementById('middleFour').textContent = licenseNumber.substr(0, 4).padEnd(4, '-'); } function confirmLicense() { if (licenseNumber.length === 8) { alert('License number confirmed: ' + licenseNumber); } else { alert('Please enter a valid 8-digit license number.'); } } function cancelEntry() { licenseNumber = ''; displayLicense(); }</script>
 </body>
 
 </html>
