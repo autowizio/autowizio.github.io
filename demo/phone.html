@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter Phone Number</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light text-center d-flex flex-column justify-content-center" style="height: 100vh;">
+<div class="container">
+<h2 class="mb-4">Enter Phone Number</h2>
+<div class="number-display mb-4">
+<span id="firstThree" class="border p-2 mr-2">---</span>
+<span id="lastSeven" class="border p-2">-------</span>
+</div>
+<div class="keypad mb-4">
+<button onclick="addDigit('1')" class="btn btn-secondary">1</button>
+<button onclick="addDigit('2')" class="btn btn-secondary">2</button>
+<button onclick="addDigit('3')" class="btn btn-secondary">3</button><br>
+<button onclick="addDigit('4')" class="btn btn-secondary mt-2">4</button>
+<button onclick="addDigit('5')" class="btn btn-secondary mt-2">5</button>
+<button onclick="addDigit('6')" class="btn btn-secondary mt-2">6</button><br>
+<button onclick="addDigit('7')" class="btn btn-secondary mt-2">7</button>
+<button onclick="addDigit('8')" class="btn btn-secondary mt-2">8</button>
+<button onclick="addDigit('9')" class="btn btn-secondary mt-2">9</button><br>
+<button onclick="addDigit('0')" class="btn btn-secondary ml-xl-5 mt-2">0</button>
+<button onclick="backspace()" class="btn btn-danger  mt-2">←</button>
+</div>
+<a href="service.html"><button class="btn btn-primary" onclick="/*confirmNumber()*/">Confirm</button></a>
+<button class="btn btn-danger" onclick="cancelEntry()">Cancel</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>let phoneNumber='';function addDigit(digit){if(phoneNumber.length<10){phoneNumber+=digit;displayNumber();}}function backspace(){phoneNumber=phoneNumber.slice(0,-1);displayNumber();}function displayNumber(){document.getElementById('firstThree').textContent=phoneNumber.substr(0,3).padEnd(3,'-');document.getElementById('lastSeven').textContent=phoneNumber.substr(3,7).padEnd(7,'-');}function confirmNumber(){if(phoneNumber.length===10){alert('Phone number confirmed: '+phoneNumber);}else{alert('Please enter a valid 10-digit phone number.');}}function cancelEntry(){phoneNumber='';displayNumber();}</script></body>
+</html>

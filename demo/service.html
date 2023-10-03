@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Service</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light text-center d-flex flex-column justify-content-center" style="height: 100vh;">
+<div class="container">
+<h2 class="mb-4">Choose Your Service</h2>
+<div class="form-group" style="max-width: 300px; margin: 0 auto;">
+<select id="serviceDropdown" class="form-control mb-4">
+<option value="">-- Select a Service --</option>
+<option value="Oil Change">Oil Change</option>
+<option value="Tire Rotation">Tire Rotation</option>
+<option value="Brake Inspection">Brake Inspection</option>
+<option value="Transmission Service">Transmission Service</option>
+<option value="Battery Replacement">Battery Replacement</option>
+<option value="Wheel Alignment">Wheel Alignment</option>
+</select>
+</div>
+<a href="fin.html"><button class="btn btn-primary" onclick="/*confirmService()*/">Confirm</button></a> 
+<button class="btn btn-danger" onclick="cancelService()">Cancel</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+function confirmService() {
+    const selectedService = document.getElementById('serviceDropdown').value;
+    if (selectedService) {
+        alert('Service selected: ' + selectedService);
+    } else {
+        alert('Please select a service from the dropdown.');
+    }
+}
+
+function cancelService() {
+    document.getElementById('serviceDropdown').value = '';
+}
+</script></body>
+</html>
